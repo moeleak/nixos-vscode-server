@@ -116,13 +116,13 @@ A FHS ([Filesystem Hierarchy Standard](https://en.wikipedia.org/wiki/Filesystem_
 ### `nodejsPackage`
 By default VS code server will install the version of Node.js it needs, and this service will automatically patch it, but if you want to minimize disk space or want it to use some specific version of Node.js, you can specify which Nix package for Node.js it should use.
 
-When `enableFHS` is set to `true` it will always require a Nix package for Node.js, but you are not required to set it, as it will default to the latest version used by VS Code.
+When `enableFHS` is set to `true` it will always require a Nix package for Node.js, but you are not required to set it, as it will default to the default Node.js package from your nixpkgs.
 
 Disclaimer: I am not a very active user of this extension and even NixOS (at the moment), so it can happen that the default is out of date. At least by having it as an option you can workaround it until the default get updated.
 
 ```nix
 {
-  services.vscode-server.nodejsPackage = pkgs.nodejs-16_x;
+  services.vscode-server.nodejsPackage = pkgs.nodejs;
 }
 ```
 
